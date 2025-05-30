@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoisaPink | Streamer LGBTQIA+ Portuguesa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rosa-principal: #ff66b2;
+            --rosa-claro: #ffccdd;
+            --rosa-escuro: #e60073;
+            --roxo-trans: #5BCEFA;
+            --branco: #ffffff;
+            --cinza-claro: #f8f8f8;
+            --cinza-texto: #555555;
+            --preto-suave: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--branco);
+            color: var(--preto-suave);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        .rainbow-border {
+            height: 5px;
+            background: linear-gradient(90deg, 
+                #FF0018 0%, 
+                #FFA52C 15%, 
+                #FFFF41 30%, 
+                #008018 45%, 
+                #0000F9 60%, 
+                #86007D 75%);
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .trans-flag {
+            height: 5px;
+            background: linear-gradient(90deg, 
+                #5BCEFA 0%, 
+                #F5A9B8 33.33%, 
+                #FFFFFF 66.66%, 
+                #F5A9B8 100%);
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rosa-claro);
+            box-shadow: 0 2px 15px rgba(255, 102, 178, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: 0 5px 20px rgba(255, 102, 178, 0.2);
+        }
+
+        /* Header melhorado */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: var(--rosa-escuro);
+            font-weight: 600;
+            margin-top: -5px;
+            opacity: 0.9;
+        }
+
+        .header-social {
+            display: flex;
+            gap: 1rem;
+            margin-left: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--rosa-claro);
+        }
+
+        .header-social a {
+            color: var(--preto-suave);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-social a:hover {
+            color: var(--rosa-principal);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a i {
+            font-size: 0.9rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Footer melhorado */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--rosa-principal);
+        }
+
+        .footer-logo h2 {
+            color: var(--rosa-principal);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .footer-motto {
+            color: var(--preto-suave);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--rosa-principal);
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 102, 178, 0.2);
+        }
+
+        .footer-social a:hover {
+            background: var(--rosa-principal);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 102, 178, 0.3);
+        }
+
+        .footer-section h3 {
+            color: var(--rosa-principal);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rosa-principal), var(--roxo-trans));
+            border-radius: 3px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--preto-suave);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--rosa-principal);
+            padding-left: 5px;
+        }
+
+        .footer-section ul li a i {
+            font-size: 0.8rem;
+            width: 15px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--preto-suave);
+        }
+
+        .contact-info li i {
+            width: 20px;
+            color: var(--rosa-principal);
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 102, 178, 0.2);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            color: var(--preto-suave);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .legal-links a {
+            color: var(--preto-suave);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: var(--rosa-principal);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-social {
+                display: none;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .legal-links {
+                justify-content: center;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--preto-suave);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--rosa-principal);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--rosa-principal);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 3rem;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255, 102, 178, 0.25);
+            border: 1px solid var(--rosa-claro);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--rosa-principal);
+            text-shadow: 0 0 15px rgba(255, 102, 178, 0.3);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            color: var(--preto-suave);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            background-color: var(--rosa-principal);
+            color: var(--branco);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            box-shadow: 0 5px 20px rgba(255, 102, 178, 0.35);
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--rosa-escuro);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 102, 178, 0.45);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .about {
+            padding: 6rem 2rem;
+            background-color: rgba(248, 248, 248, 0.9);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--rosa-claro);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--rosa-principal);
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rosa-principal), var(--roxo-trans));
+            bottom: -12px;
+            left: 20%;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+            padding: 1.5rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--rosa-principal);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            border: 5px solid var(--rosa-principal);
+            box-shadow: 0 15px 40px rgba(255, 102, 178, 0.25);
+            background-color: var(--branco);
+            padding: 5px;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            justify-content: flex-start;
+        }
+
+        .social-links a {
+            color: var(--rosa-principal);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            background-color: var(--branco);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(255, 102, 178, 0.2);
+        }
+
+        .social-links a:hover {
+            color: var(--branco);
+            background-color: var(--rosa-principal);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 102, 178, 0.35);
+        }
+
+        .stream {
+            padding: 6rem 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            position: relative;
+        }
+
+        .stream::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--rosa-claro);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .stream-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stream-embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(255, 102, 178, 0.2);
+            border: 1px solid var(--rosa-claro);
+            overflow: hidden;
+        }
+
+        .stream-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .stream p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--preto-suave);
+        }
+
+        .highlight {
+            color: var(--rosa-principal);
+            font-weight: 700;
+            background-color: rgba(255, 102, 178, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+
+        .schedule {
+            padding: 6rem 2rem;
+            background-color: rgba(248, 248, 248, 0.9);
+            text-align: center;
+            position: relative;
+        }
+
+        .schedule::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--rosa-claro);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 3rem auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .schedule-day {
+            background-color: var(--branco);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border-top: 5px solid var(--rosa-principal);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(255, 102, 178, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--rosa-principal), var(--roxo-trans));
+        }
+
+        .schedule-day:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 102, 178, 0.25);
+        }
+
+        .schedule-day h3 {
+            color: var(--rosa-principal);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .schedule-day p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .cheer-section {
+            padding: 6rem 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            position: relative;
+        }
+
+        .cheer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cheer-container p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--preto-suave);
+            line-height: 1.7;
+        }
+
+        .cheer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cheer-icons img {
+            height: 100px;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 5px 15px rgba(255, 102, 178, 0.3));
+        }
+
+        .cheer-icons img:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 10px 20px rgba(255, 102, 178, 0.5));
+        }
+
+        footer {
+            background-color: var(--rosa-claro);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--rosa-principal);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 102, 178, 0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--preto-suave);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .footer-links a:hover {
+            color: var(--rosa-principal);
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--rosa-principal);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .copyright {
+            color: var(--preto-suave);
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--preto-suave);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            color: var(--rosa-principal);
+            transform: scale(1.1);
+        }
+
+        /* Efeitos especiais */
+        .glow {
+            animation: glow 4s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--rosa-claro), 0 0 10px var(--rosa-claro);
+            }
+            to {
+                text-shadow: 0 0 10px var(--rosa-principal), 0 0 20px var(--rosa-principal), 0 0 30px var(--rosa-escuro);
+            }
+        }
+
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Botão de doação especial */
+        .donate-btn {
+            background: linear-gradient(45deg, var(--rosa-principal), var(--roxo-trans));
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(91, 206, 250, 0.35);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            gap: 0.5rem;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(91, 206, 250, 0.45);
+            background: linear-gradient(45deg, var(--rosa-escuro), var(--roxo-trans));
+        }
+
+        .donate-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Notificação de stream */
+        .stream-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--rosa-principal), var(--roxo-trans));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 102, 178, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stream-notification.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .stream-notification .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--rosa-claro);
+                box-shadow: 0 10px 25px rgba(255, 102, 178, 0.15);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .cheer-icons img {
+                height: 80px;
+            }
+
+            .stream-notification {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn, .donate-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .cheer-icons {
+                gap: 1.5rem;
+            }
+
+            .cheer-icons img {
+                height: 60px;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+            <img src="https://media.discordapp.net/attachments/1191749410665795704/1374817921322324028/Cheer2000.png?ex=683aa337&is=683951b7&hm=20f67a6ab821c717327117c649d84328c4d8d386515338358e0245ff4bb7d06c&=&format=webp&quality=lossless&width=800&height=800" 
+                alt="RoisaPink Logo" 
+                width="60" 
+                height="60">
+                <div class="logo-text">
+                    <h1>RoisaPink</h1>
+                    <span class="tagline">Streamer LGBTQIA+</span>
+                </div>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#home"><i class="fas fa-home"></i> Início</a>
+                <a href="#about"><i class="fas fa-user"></i> Sobre</a>
+                <a href="#stream"><i class="fas fa-play"></i> Stream</a>
+                <a href="#schedule"><i class="fas fa-calendar-alt"></i> Horários</a>
+                <a href="#cheers"><i class="fas fa-gem"></i> Cheers</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contacto</a>
+                <div class="header-social">
+                    <a href="https://twitch.tv/roisapink" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+                    <a href="https://twitter.com/roisapink" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/roisapink" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="glow">RoisaPink</h2>
+            <p>Streamer, criadora de conteúdo. Direitos trans são direitos humanos! ❤️🏳️‍⚧️</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#stream" class="btn"><i class="fas fa-play"></i> Assistir Agora</a>
+                <button class="donate-btn"><i class="fas fa-heart"></i> Doar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Olá, eu sou a Roisa! <span style="color: var(--roxo-trans);">🏳️‍⚧️</span></h3>
+                <p>Sou uma streamer portuguesa, mulher trans e orgulhosa de ser quem sou! Criei este espaço para jogar, conversar e construir uma comunidade acolhedora para todos, especialmente para pessoas LGBTQIA+.</p>
+                <p>As minhas streams são uma mistura de jogos, conversa e ativismo. Adoro jogar desde indies até AAA, mas o mais importante para mim é a ligação com a comunidade.</p>
+                <p>Fora das streams, sou licenciada em Design e adoro criar artes digitais. A minha transição começou em 2020 e desde então tenho usado a minha plataforma para educar e apoiar outras pessoas trans.</p>
+                
+                <div class="social-links">
+                    <a href="https://twitch.tv/roisapink" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+                    <a href="https://twitter.com/roisapink" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/roisapink" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/roisapink" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@roisapink" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://media.discordapp.net/attachments/1355678241557577878/1368668708175876158/56_Sem_Titulo_20250503191153.png?ex=683aadd0&is=68395c50&hm=bf4d90e0fb97168de11f7dd0ac8a56114fa4d65480222e38de3a0ac934f3a0db&=&format=webp&quality=lossless&width=825&height=930" alt="RoisaPink" class="float">
+            </div>
+        </div>
+    </section>
+
+    <section class="stream" id="stream">
+        <h2 class="section-title">Vê a Minha Stream</h2>
+        <div class="stream-container">
+            <div class="stream-embed">
+                <!-- Embed da Twitch corrigido -->
+                <iframe   src="https://player.twitch.tv/?channel=roisapink&parent=localhost"
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        scrolling="no" 
+                        allow="autoplay; fullscreen">
+                </iframe>
+            </div>
+            <p>Costumo transmitir de <span class="highlight">Segunda a sábado, das 14h às 22h</span></p>
+            <a href="https://twitch.tv/roisapink" class="btn" target="_blank"><i class="fab fa-twitch"></i> Seguir na Twitch</a>
+        </div>
+    </section>
+
+    <section class="schedule" id="schedule">
+        <h2 class="section-title">Horários das Streams</h2>
+        <div class="schedule-grid">
+            <div class="schedule-day">
+                <h3>Segunda</h3>
+                <p><span class="highlight">Jogos Indies</span></p>
+                <p>20h - 23h</p>
+                <p>+ Conversa sobre LGBTQIA+</p>
+            </div>
+            <div class="schedule-day">
+                <h3>Terça</h3>
+                <p><span class="highlight">Jogos em Co-op</span></p>
+                <p>20h - 23h</p>
+                <p>Com convidados especiais</p>
+            </div>
+            <div class="schedule-day">
+                <h3>Quarta</h3>
+                <p><span class="highlight">Sextou com Roisa</span></p>
+                <p>21h - 00h</p>
+                <p>Jogos variados + drinks</p>
+            </div>
+            <div class="schedule-day">
+                <h3>Quinta</h3>
+                <p><span class="highlight">Maratona</span></p>
+                <p>16h - 21h</p>
+                <p>Jogar um jogo do início ao fim</p>
+            </div>
+            <div class="schedule-day">
+                <h3>Sexta</h3>
+                <p><span class="highlight">Maratona</span></p>
+                <p>16h - 21h</p>
+                <p>Jogar um jogo do início ao fim</p>
+            </div>
+            <div class="schedule-day">
+                <h3>Sábado</h3>
+                <p><span class="highlight">Maratona</span></p>
+                <p>16h - 21h</p>
+                <p>Jogar um jogo do início ao fim</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cheer-section" id="cheers">
+        <h2 class="section-title">Apoia a Stream</h2>
+        <div class="cheer-container">
+            <p>Envia cheers na Twitch para mostrar o teu apoio e ajudar o canal a crescer!</p>
+            <p>Cada cheer ajuda a tornar a stream mais visível na plataforma.</p>
+            <!--
+            <div class="cheer-icons">
+                <img src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_dbc2e7a770c04700a1f873adbaaffccd/default/light/1.0" alt="Cheer 500" 
+                title="Cheer 500 bits" 
+                width="55" 
+                height="55">
+                <img src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_1ff1afc2dfc34675882032e9396c97ff/default/light/1.0" alt="Cheer 1000" 
+                title="Cheer 1000 bits" 
+                width="25" 
+                height="25">
+                <img src="https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_f951f4d8e6cc418a974cc0ffec34e814/default/light/1.0" alt="Cheer 2000" 
+                title="Cheer 2000 bits" 
+                width="25" 
+                height="25">
+            </div>
+            -->
+            
+            <a href="https://twitch.tv/roisapink" class="btn" target="_blank"><i class="fas fa-gem"></i> Enviar Cheers na Twitch</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <h2>RoisaPink</h2>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://twitch.tv/roisapink" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="https://twitter.com/roisapink" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/roisapink" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/roisapink" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://tiktok.com/@roisapink" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre Mim</a></li>
+                        <li><a href="#stream"><i class="fas fa-chevron-right"></i> Stream</a></li>
+                        <li><a href="#schedule"><i class="fas fa-chevron-right"></i> Horários</a></li>
+                        <li><a href="#cheers"><i class="fas fa-chevron-right"></i> Apoiar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="https://twitch.tv/roisapink" target="_blank"><i class="fas fa-chevron-right"></i> Twitch</a></li>
+                        <li><a href="https://discord.gg/example" target="_blank"><i class="fas fa-chevron-right"></i> Discord</a></li>
+                        <li><a href="https://streamelements.com/roisapink/tip" target="_blank"><i class="fas fa-chevron-right"></i> Doações</a></li>
+                        <li><a href="https://twitch.tv/roisapink/schedule" target="_blank"><i class="fas fa-chevron-right"></i> Agenda</a></li>
+                        <li><a href="https://www.ilga-portugal.pt/" target="_blank"><i class="fas fa-chevron-right"></i> ILGA Portugal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contacto@roisapink.pt">contacto@roisapink.pt</a></li>
+                        <li><i class="fas fa-calendar-check"></i> Seg-Sáb: 20h-00h</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Portugal</li>
+                    </ul>
+                    <button class="donate-btn"><i class="fas fa-heart"></i> Doar Agora</button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 RoisaPink. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="stream-notification" id="streamNotification">
+        <div class="live-dot"></div>
+        <span>EM DIRETO AGORA!</span>
+    </div>
+
+    <script>
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Fechar menu ao clicar num link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Efeito de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Botão de doação
+        const donateBtn = document.querySelector('.donate-btn');
+        donateBtn.addEventListener('click', () => {
+            alert('Obrigada pelo teu apoio! ❤️\nA redirecionar para a página de doações...');
+            // Aqui pode redirecionar para um link de doação real
+            // window.location.href = 'https://streamlabs.com/roisapink/tip';
+        });
+
+        // Atualizar horário dinâmico
+        function updateStreamStatus() {
+            const now = new Date();
+            const hours = now.getHours();
+            const day = now.getDay();
+            
+            // Verificar se está no horário de stream (exemplo: terça a sábado, 20h-00h)
+            const isStreaming = (day >= 2 && day <= 6) && (hours >= 20 && hours < 24);
+            
+            const streamStatus = document.createElement('div');
+            streamStatus.style.position = 'fixed';
+            streamStatus.style.bottom = '20px';
+            streamStatus.style.right = '20px';
+            streamStatus.style.backgroundColor = isStreaming ? 'var(--rosa-principal)' : '#555';
+            streamStatus.style.color = 'white';
+            streamStatus.style.padding = '10px 20px';
+            streamStatus.style.borderRadius = '50px';
+            streamStatus.style.zIndex = '1000';
+            streamStatus.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            streamStatus.innerHTML = isStreaming 
+                ? '<i class="fas fa-circle" style="color: #ff0000; margin-right: 5px;"></i> EM DIRETO!' 
+                : 'OFFLINE';
+            
+            document.body.appendChild(streamStatus);
+            
+            // Remover após alguns segundos
+            setTimeout(() => {
+                streamStatus.style.opacity = '0';
+                setTimeout(() => {
+                    streamStatus.remove();
+                }, 500);
+            }, 5000);
+        }
+
+        // Chamar a função quando a página carrega e a cada hora
+        window.addEventListener('load', updateStreamStatus);
+        setInterval(updateStreamStatus, 3600000); // Atualizar a cada hora
+    </script>
+</body>
+</html>
