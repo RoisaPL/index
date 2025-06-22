@@ -543,6 +543,207 @@
             line-height: 1.7;
         }
 
+        /* ===== SEÇÃO GIVEAWAY ===== */
+        .giveaway-section {
+            padding: 6rem 2rem;
+            background-color: rgba(248, 248, 248, 0.9);
+            text-align: center;
+            position: relative;
+        }
+
+        .giveaway-container {
+            max-width: 900px; /* Reduzi a largura máxima para ficar mais compacto */
+            margin: 0 auto;
+        }
+
+        .giveaway-content {
+            background-color: var(--branco);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255, 102, 178, 0.15);
+            border: 1px solid var(--rosa-claro);
+            margin-bottom: 3rem; /* Espaço entre a tabela e a roleta */
+        }
+
+        .giveaway-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 102, 178, 0.25);
+        }
+
+        .prize-info {
+            background: linear-gradient(135deg, var(--rosa-claro), var(--branco));
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .prize-info h3 {
+            color: var(--rosa-escuro);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prize-value {
+            font-size: 1.3rem;
+            color: var(--preto-suave);
+            font-weight: 600;
+        }
+
+        .prize-value i {
+            color: var(--rosa-principal);
+        }
+
+        /* Estilo atualizado para a tabela do giveaway */
+        .giveaway-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .giveaway-table th, .giveaway-table td {
+            padding: 1rem;
+            border: 1px solid var(--rosa-claro);
+        }
+
+        .giveaway-table th {
+            background-color: var(--rosa-principal);
+            color: white;
+            font-weight: 600;
+        }
+
+        .giveaway-table tr:nth-child(even) {
+            background-color: rgba(255, 102, 178, 0.1);
+        }
+
+        .giveaway-table tr:hover {
+            background-color: rgba(255, 102, 178, 0.2);
+        }
+
+        .roulette-wrapper {
+            flex: 1;
+            min-width: 300px;
+            width: 100%;
+        }
+
+        .roulette-container {
+            background-color: var(--branco);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255, 102, 178, 0.15);
+            border: 1px solid var(--rosa-claro);
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .roulette-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 102, 178, 0.25);
+        }
+
+        .roulette-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .roulette-title {
+            color: var(--rosa-principal);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--rosa-principal);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .toggle-btn:hover {
+            background-color: rgba(255, 102, 178, 0.1);
+            transform: scale(1.1);
+        }
+
+        .roulette-container.minimized #roleta-content {
+            display: none;
+        }
+
+        .roulette-container.minimized {
+            padding: 1.5rem;
+        }
+
+        #roleta-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto 1.5rem;
+        }
+
+        #roleta {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid var(--rosa-principal);
+            box-shadow: 0 5px 15px rgba(255, 102, 178, 0.2);
+        }
+
+        #indicador {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid var(--rosa-principal);
+            z-index: 10;
+        }
+
+        #girar-roleta {
+            padding: 0.9rem 2rem;
+            background: linear-gradient(45deg, var(--rosa-principal), var(--roxo-trans));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 102, 178, 0.35);
+            font-size: 1.05rem;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        #girar-roleta:hover {
+            background: linear-gradient(45deg, var(--rosa-escuro), var(--roxo-trans));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 102, 178, 0.45);
+        }
+
+        #resultado {
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: var(--rosa-principal);
+            font-size: 1.2rem;
+            min-height: 2rem;
+            text-align: center;
+        }
+
         /* ===== FOOTER ===== */
         footer {
             background-color: var(--rosa-claro);
@@ -831,6 +1032,21 @@
                 padding: 0.8rem 1.2rem;
                 font-size: 0.9rem;
             }
+
+            /* Alterações para o giveaway em mobile */
+            .giveaway-container {
+                flex-direction: column;
+            }
+            
+            .giveaway-content, 
+            .roulette-wrapper {
+                min-width: 100%;
+                width: 100%;
+            }
+            
+            .roulette-container {
+                margin-top: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -863,14 +1079,12 @@
             .footer-links {
                 gap: 1.5rem;
             }
-        }
 
-        .giveaway-table tr:hover {
-            background-color: #fff0f5;
-        }
-        .giveaway-table tr:hover td {
-            color: #ff1493 !important;
-            font-weight: 500;
+            /* Ajustes para a roleta em telas muito pequenas */
+            #roleta-container {
+                width: 280px;
+                height: 280px;
+            }
         }
     </style>
 </head>
@@ -931,11 +1145,10 @@
                 <p>Sou uma streamer portuguesa, mulher trans e orgulhosa de ser quem sou! Criei este espaço para jogar, conversar e construir uma comunidade acolhedora para todas as pessoas, especialmente para a comunidade LGBTQIA+.</p>
                 <p>Jogamos uma grande variedade de jogos, com especial foco no género de terror!</p>
                 <p>Fora das streams, sou licenciada em Design e adoro criar arte digital. Comecei a fazer lives em março de 2025 e, desde então, o meu sonho é tornar-me uma streamer reconhecida — não apenas pelo talento, mas também pela representatividade.</p>
-
                 <div class="social-links">
                     <a href="https://twitch.tv/roisapink" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
                     <a href="https://discord.gg/kYk3vwK2uh" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="https://instagram.com/roisapink" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://instagram.com/roisapink" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.youtube.com/@roisapinklives" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://tiktok.com/@roisapink" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
@@ -981,71 +1194,98 @@
         </div>
     </section>
     
-    <div class="giveaway-section" id="giveway" style="padding: 6rem 2rem; background-color: rgba(248, 248, 248, 0.9); text-align: center; position: relative;">
-        <div class="giveaway-container" style="max-width: 800px; margin: 0 auto; background-color: var(--branco); padding: 3rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(255, 102, 178, 0.15); border: 1px solid var(--rosa-claro); position: relative; z-index: 1; transition: all 0.4s ease;">
-            <h2 class="section-title" style="margin-bottom: 2rem;">Giveaway do Mês</h2>
-            
-            <div style="background: linear-gradient(135deg, var(--rosa-claro), var(--branco)); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem;">
-                <h3 style="color: var(--rosa-escuro); font-size: 1.5rem; margin-bottom: 0.5rem;">Prêmio Atual</h3>
-                <p style="font-size: 1.3rem; color: var(--preto-suave); font-weight: 600;">
-                    <i class="fas fa-gift" style="color: var(--rosa-principal);"></i> 10€ na Steam
-                </p>
-            </div>
-            
-            <div class="giveaway-table" style="width: 100%; overflow-x: auto;">
-                <table style="width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 2rem;">
+    <section class="giveaway-section" id="giveway">
+        <h2 class="section-title">Giveaway do Mês</h2>
+        
+        <div class="giveaway-container">
+            <!-- Tabela de Participantes -->
+            <div class="giveaway-content">
+                <div class="prize-info">
+                    <h3>Prêmio Atual</h3>
+                    <p class="prize-value">
+                        <i class="fas fa-gift"></i> 10€ na Steam
+                    </p>
+                </div>
+                
+                <table class="giveaway-table">
                     <thead>
                         <tr>
-                            <th style="padding: 1rem; background-color: var(--rosa-principal); color: white; text-align: center; border-radius: 8px 0 0 0; font-weight: 600;">Nome</th>
-                            <th style="padding: 1rem; background-color: var(--rosa-principal); color: white; text-align: center; border-radius: 0 8px 0 0; font-weight: 600;">Resgatados</th>
+                            <th>Participante</th>
+                            <th>Resgates</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">iqDiogoo</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">3</td>
+                        <tr>
+                            <td>iqDiogoo</td>
+                            <td>3</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">rafael18pt</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>rafael18pt</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">isjao</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>isjao</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">rui1337_pink</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>rui1337_pink</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">necaass</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>necaass</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">DEM0NAO</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>DEM0NAO</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">loleloleLeo</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>loleloleLeo</td>
+                            <td>1</td>
                         </tr>
-                        <tr style="transition: all 0.3s ease;">
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">tomie_szz</td>
-                            <td style="padding: 1rem; border-bottom: 1px solid var(--rosa-claro); color: var(--preto-suave);">1</td>
+                        <tr>
+                            <td>tomie_szz</td>
+                            <td>1</td>
                         </tr>
                     </tbody>
                 </table>
+                
+                <p style="font-size: 0.9rem; color: var(--preto-suave);">
+                Quanto mais participações nas streams, mais chances de ganhar!
+                </p>
             </div>
-            
-            <p style="font-size: 1.1rem; color: var(--preto-suave); margin-bottom: 2rem;">
-                Participe nas minhas streams para ter chance de ganhar! 🎮💖
-            </p>
-            
-            <a href="#stream" class="btn" style="margin-top: 1rem;">
-                <i class="fas fa-play"></i> Assistir Agora
-            </a>
+
+            <!-- Roleta -->
+            <div class="roulette-wrapper">
+                <div class="roulette-container">
+                    <div class="roulette-header">
+                        <h3 class="roulette-title">Roleta de Ganhadores</h3>
+                        <button id="toggle-roleta" class="toggle-btn" title="Minimizar roleta">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                    <div id="roleta-content">
+                        <div id="roleta-container">
+                            <canvas id="roleta" width="300" height="300"></canvas>
+                            <div id="indicador"></div>
+                        </div>
+                        <button id="girar-roleta">
+                            <i class="fas fa-sync-alt"></i> Girar Roleta
+                        </button>
+                        <div id="resultado"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <p style="font-size: 1.1rem; color: var(--preto-suave); margin: 2rem 0;">
+            Participe nas minhas streams para ter chance de ganhar! 🎮💖
+        </p>
+
+        <a href="#stream" class="btn" style="margin-top: 1rem;">
+            <i class="fas fa-play"></i> Assistir Agora
+        </a>
+    </section>
 
     <footer id="contact">
         <div class="footer-content">
@@ -1098,6 +1338,9 @@
             
             <div class="footer-bottom">
                 <p class="copyright">© 2025 RoisaPink. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
                 </div>
             </div>
         </div>
@@ -1153,6 +1396,227 @@
             // window.location.href = 'https://streamlabs.com/roisapink/tip';
         });
 
+        // ROULETTE SCRIPT - NO WINNER ANNOUNCEMENT
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get participants from table
+            const tableRows = document.querySelectorAll('.giveaway-table tbody tr');
+            const participants = [];
+            
+            tableRows.forEach(row => {
+                const name = row.cells[0].textContent;
+                const entries = parseInt(row.cells[1].textContent);
+                
+                for (let i = 0; i < entries; i++) {
+                    participants.push(name);
+                }
+            });
+            
+            // Roulette setup
+            const canvas = document.getElementById('roleta');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) - 10;
+            
+            // Theme colors
+            const colors = [
+                'rgba(255, 102, 178, 0.8)',
+                'rgba(255, 204, 221, 0.8)',
+                'rgba(91, 206, 250, 0.8)',
+                'rgba(255, 153, 204, 0.8)'
+            ];
+            
+            // Draw roulette with current rotation
+            function drawRoulette(rotation = 0) {
+                // Não desenhar se a roleta estiver minimizada
+                if (document.querySelector('.roulette-container').classList.contains('minimized')) {
+                    return;
+                }
+                
+                const segments = participants.length;
+                if (segments === 0) return;
+                
+                const segmentAngle = (2 * Math.PI) / segments;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw segments
+                for (let i = 0; i < segments; i++) {
+                    const startAngle = i * segmentAngle + rotation;
+                    const endAngle = (i + 1) * segmentAngle + rotation;
+                    
+                    // Segment color
+                    ctx.fillStyle = colors[i % colors.length];
+                    
+                    // Draw segment
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Segment border
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    
+                    // Participant name
+                    ctx.save();
+                    ctx.translate(centerX, centerY);
+                    ctx.rotate(startAngle + segmentAngle / 2);
+                    
+                    ctx.textAlign = 'right';
+                    ctx.fillStyle = 'white';
+                    ctx.font = 'bold 11px Arial';
+                    
+                    // Shorten long names
+                    const displayName = participants[i].length > 10 
+                        ? participants[i].substring(0, 8) + '...' 
+                        : participants[i];
+                    
+                    ctx.fillText(displayName, radius - 15, 5);
+                    ctx.restore();
+                }
+                
+                // Center circle
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius * 0.1, 0, 2 * Math.PI);
+                ctx.fillStyle = 'var(--branco)';
+                ctx.fill();
+                ctx.strokeStyle = 'var(--rosa-principal)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+            
+            // Spin the roulette
+            let animationId;
+            let currentRotation = 0;
+            
+            document.getElementById('girar-roleta').addEventListener('click', function() {
+                if (participants.length === 0) {
+                    return;
+                }
+                
+                // Disable button during spin
+                const btn = this;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Girando...';
+                
+                // Stop any ongoing animation
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                
+                // Random spin (5-10 full rotations + random position)
+                const spins = 5 + Math.random() * 5;
+                const finalAngle = spins * 2 * Math.PI + Math.random() * 2 * Math.PI;
+                const duration = 5000; // 5 seconds
+                const startTime = performance.now();
+                
+                function spin(timestamp) {
+                    const progress = (timestamp - startTime) / duration;
+                    
+                    if (progress < 1) {
+                        // Easing function for smooth deceleration
+                        const easing = 1 - Math.pow(1 - progress, 3);
+                        currentRotation = easing * finalAngle;
+                        
+                        drawRoulette(currentRotation);
+                        
+                        animationId = requestAnimationFrame(spin);
+                    } else {
+                        // Re-enable button
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fas fa-sync-alt"></i> Girar Novamente';
+                        
+                        // Confetti effect
+                        createConfetti();
+                    }
+                }
+                
+                animationId = requestAnimationFrame(spin);
+            });
+            
+            // Confetti effect
+            function createConfetti() {
+                const confettiContainer = document.createElement('div');
+                confettiContainer.style.position = 'fixed';
+                confettiContainer.style.top = '0';
+                confettiContainer.style.left = '0';
+                confettiContainer.style.width = '100%';
+                confettiContainer.style.height = '100%';
+                confettiContainer.style.pointerEvents = 'none';
+                confettiContainer.style.zIndex = '1000';
+                document.body.appendChild(confettiContainer);
+                
+                const colors = ['#ff66b2', '#ffccdd', '#5BCEFA', '#ffffff'];
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'absolute';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.opacity = '0.8';
+                    confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                    
+                    const animationDuration = Math.random() * 3 + 2;
+                    
+                    confetti.style.animation = `confetti-fall ${animationDuration}s linear forwards`;
+                    
+                    confettiContainer.appendChild(confetti);
+                }
+                
+                setTimeout(() => {
+                    confettiContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        confettiContainer.remove();
+                    }, 1000);
+                }, 3000);
+            }
+            
+            // Toggle da roleta
+            const toggleBtn = document.getElementById('toggle-roleta');
+            const roletaContainer = document.querySelector('.roulette-container');
+            
+            toggleBtn.addEventListener('click', function() {
+                roletaContainer.classList.toggle('minimized');
+                
+                if (roletaContainer.classList.contains('minimized')) {
+                    toggleBtn.innerHTML = '<i class="fas fa-plus"></i>';
+                    toggleBtn.title = 'Expandir roleta';
+                } else {
+                    toggleBtn.innerHTML = '<i class="fas fa-minus"></i>';
+                    toggleBtn.title = 'Minimizar roleta';
+                    // Redesenha a roleta quando é expandida novamente
+                    drawRoulette(currentRotation);
+                }
+            });
+            
+            // Add confetti animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes confetti-fall {
+                    0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initial draw
+            drawRoulette();
+        });
+
         // Atualizar horário dinâmico
         function updateStreamStatus() {
             const now = new Date();
@@ -1162,34 +1626,28 @@
             // Verificar se está no horário de stream (exemplo: terça a sábado, 20h-00h)
             const isStreaming = (day >= 2 && day <= 6) && (hours >= 20 && hours < 24);
             
-            const streamStatus = document.createElement('div');
-            streamStatus.style.position = 'fixed';
-            streamStatus.style.bottom = '20px';
-            streamStatus.style.right = '20px';
-            streamStatus.style.backgroundColor = isStreaming ? 'var(--rosa-principal)' : '#555';
-            streamStatus.style.color = 'white';
-            streamStatus.style.padding = '10px 20px';
-            streamStatus.style.borderRadius = '50px';
-            streamStatus.style.zIndex = '1000';
-            streamStatus.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-            streamStatus.innerHTML = isStreaming 
-                ? '<i class="fas fa-circle" style="color: #ff0000; margin-right: 5px;"></i> EM DIRETO!' 
-                : 'OFFLINE';
+            const notification = document.getElementById('streamNotification');
             
-            document.body.appendChild(streamStatus);
-            
-            // Remover após alguns segundos
-            setTimeout(() => {
-                streamStatus.style.opacity = '0';
-                setTimeout(() => {
-                    streamStatus.remove();
-                }, 500);
-            }, 5000);
+            if (isStreaming) {
+                notification.classList.add('active');
+            } else {
+                notification.classList.remove('active');
+            }
         }
 
         // Chamar a função quando a página carrega e a cada hora
         window.addEventListener('load', updateStreamStatus);
         setInterval(updateStreamStatus, 3600000); // Atualizar a cada hora
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
