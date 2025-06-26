@@ -1807,70 +1807,59 @@
             }
         });
 
-        // Countdown Timer
-    function updateCountdown() {
-        // Data alvo - 19 do mês atual
-        const now = new Date();
-        let targetMonth = now.getMonth();
-        let targetYear = now.getFullYear();
-        
-        // Se já passou do dia 19 deste mês, vamos para o próximo mês
-        if (now.getDate() > 19) {
-            targetMonth += 1;
-            if (targetMonth > 11) {
-                targetMonth = 0;
-                targetYear += 1;
+       // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            let targetMonth = now.getMonth();
+            let targetYear = now.getFullYear();
+            
+            if (now.getDate() > 19) {
+                targetMonth += 1;
+                if (targetMonth > 11) {
+                    targetMonth = 0;
+                    targetYear += 1;
+                }
             }
+            
+            const targetDate = new Date(targetYear, targetMonth, 19, 23, 59, 59);
+            const nowDate = new Date();
+            const diff = targetDate - nowDate;
+            
+            if (diff <= 0) {
+                document.getElementById('countdownTimer').innerHTML = 
+                    '<span style="font-size: 1.1rem;">O evento terminou!</span>';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
-        
-        const targetDate = new Date(targetYear, targetMonth, 19, 23, 59, 59);
-        const nowDate = new Date();
-        
-        const diff = targetDate - nowDate;
-        
-        if (diff <= 0) {
-            // Se o evento já passou
-            document.getElementById('countdownTimer').innerHTML = 
-                '<span style="font-size: 1.1rem;">O evento terminou!</span>';
-            return;
-        }
-        
-        // Calcular dias, horas, minutos e segundos
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        // Atualizar o display
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    // Fechar o countdown
-    document.getElementById('closeCountdown').addEventListener('click', function() {
-        const banner = document.getElementById('countdownBanner');
-        banner.style.animation = 'none';
-        banner.style.transform = 'translate(-50%, 100px)';
-        banner.style.opacity = '0';
-        
-        setTimeout(() => {
-            banner.remove();
-            // Armazenar no localStorage que o usuário fechou
-            localStorage.setItem('countdownClosed', 'true');
-        }, 500);
-    });
-    
-    // Verificar se o usuário já fechou o countdown
-    if (!localStorage.getItem('countdownClosed')) {
-        // Iniciar o countdown
+
+        // Fechar o countdown
+        document.getElementById('closeCountdown').addEventListener('click', function() {
+            const banner = document.getElementById('countdownBanner');
+            banner.style.animation = 'none';
+            banner.style.transform = 'translate(-50%, 100px)';
+            banner.style.opacity = '0';
+            
+            setTimeout(() => {
+                banner.remove();
+                // Remover esta linha abaixo para não armazenar a escolha:
+                // localStorage.setItem('countdownClosed', 'true');
+            }, 500);
+        });
+
+        // Sempre iniciar o countdown (independente de ter sido fechado antes)
         updateCountdown();
         setInterval(updateCountdown, 1000);
-    } else {
-        // Se já fechou antes, remover o banner
-        document.getElementById('countdownBanner').remove();
-    }
+
     </script>
 </body>
 </html>
