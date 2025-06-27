@@ -1196,6 +1196,15 @@
             font-size: 0.8rem;
         }
     }
+
+    .giveaway-content.minimized #tabela-content {
+        display: none;
+    }
+
+    .giveaway-content.minimized {
+        padding: 1.5rem;
+    }
+
     </style>
 </head>
 <body>
@@ -1306,18 +1315,25 @@
     
     <section class="giveaway-section" id="giveway">
         <h2 class="section-title">Giveaway do Mês</h2>
-        
         <div class="giveaway-container">
             <!-- Tabela de Participantes -->
-            <div class="giveaway-content">
-                <div class="prize-info">
-                    <h3>Prêmio Atual</h3>
-                    <p class="prize-value">
-                        <i class="fas fa-gift"></i> 10€ na Steam
-                    </p>
+            <div class="giveaway-content" id="tabelaGiveaway">
+                <div class="roulette-header">
+                    <h3>Participantes do Giveaway</h3>
+                    <button id="toggle-tabela" class="toggle-btn" title="Minimizar tabela">
+                        <i class="fas fa-minus"></i>
+                    </button>
                 </div>
                 
-                <table class="giveaway-table">
+                <div id="tabela-content">
+                    <div class="prize-info">
+                        <h3>Prêmio Atual</h3>
+                        <p class="prize-value">
+                            <i class="fas fa-gift"></i> 10€ na Steam
+                        </p>
+                    </div>
+                    
+                    <table class="giveaway-table">
                     <thead>
                         <tr>
                             <th>Participante</th>
@@ -1404,9 +1420,10 @@
                 Quanto mais participações nas streams, mais chances de ganhar!
                 </p>
             </div>
+        </div>
 
-            <!-- Roleta -->
-            <div class="roulette-wrapper">
+        <!-- Roleta -->
+        <div class="roulette-wrapper">
                 <div class="roulette-container">
                     <div class="roulette-header">
                         <h3 class="roulette-title">Roleta de Ganhadores</h3>
@@ -1756,7 +1773,22 @@
                     }, 1000);
                 }, 3000);
             }
-            
+            // Toggle da tabela
+            const toggleTabelaBtn = document.getElementById('toggle-tabela');
+            const tabelaContainer = document.querySelector('.giveaway-content');
+
+            toggleTabelaBtn.addEventListener('click', function() {
+                tabelaContainer.classList.toggle('minimized');
+                
+                if (tabelaContainer.classList.contains('minimized')) {
+                    toggleTabelaBtn.innerHTML = '<i class="fas fa-plus"></i>';
+                    toggleTabelaBtn.title = 'Expandir tabela';
+                } else {
+                    toggleTabelaBtn.innerHTML = '<i class="fas fa-minus"></i>';
+                    toggleTabelaBtn.title = 'Minimizar tabela';
+                }
+            });
+
             // Toggle da roleta
             const toggleBtn = document.getElementById('toggle-roleta');
             const roletaContainer = document.querySelector('.roulette-container');
