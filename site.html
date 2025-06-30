@@ -1475,7 +1475,7 @@
         <h2 class="section-title">Giveaway do Mês</h2>
         <div class="giveaway-container">
             <!-- Tabela de Participantes -->
-            <div class="giveaway-content" id="tabelaGiveaway">
+            <div class="giveaway-content minimized" id="tabelaGiveaway">
                 <div class="roulette-header">
                     <h3 class="roulette-title">Participantes do Giveaway</h3>
                     <button id="toggle-tabela" class="toggle-btn" title="Minimizar tabela">
@@ -1582,7 +1582,7 @@
 
         <!-- Roleta -->
         <div class="roulette-wrapper">
-                <div class="roulette-container">
+                <div class="roulette-container minimized">
                     <div class="roulette-header">
                         <h3 class="roulette-title">Roleta de Ganhadores</h3>
                         <button id="toggle-roleta" class="toggle-btn" title="Minimizar roleta">
@@ -1782,7 +1782,7 @@
             // window.location.href = 'https://streamlabs.com/roisapink/tip';
         });
 
-        // ROULETTE SCRIPT - NO WINNER ANNOUNCEMENT
+        // ROULETTE SCRIPT - COM ANÚNCIO DO VENCEDOR
         document.addEventListener('DOMContentLoaded', function() {
             // Get participants from table
             const tableRows = document.querySelectorAll('.giveaway-table tbody tr');
@@ -1803,6 +1803,7 @@
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
             const radius = Math.min(centerX, centerY) - 10;
+            const resultadoElement = document.getElementById('resultado');
             
             // Theme colors
             const colors = [
@@ -1878,11 +1879,17 @@
             // Spin the roulette
             let animationId;
             let currentRotation = 0;
+            let winner = null;
             
             document.getElementById('girar-roleta').addEventListener('click', function() {
                 if (participants.length === 0) {
+                    resultadoElement.textContent = "Nenhum participante encontrado!";
                     return;
                 }
+                
+                // Reset winner
+                winner = null;
+                resultadoElement.textContent = "";
                 
                 // Disable button during spin
                 const btn = this;
@@ -1912,6 +1919,27 @@
                         
                         animationId = requestAnimationFrame(spin);
                     } else {
+                        // Calculate winner when animation ends
+                        const segments = participants.length;
+                        const segmentAngle = (2 * Math.PI) / segments;
+                        
+                        // Normalize rotation to [0, 2π]
+                        const normalizedRotation = ((currentRotation % (2 * Math.PI)) + (2 * Math.PI)) % (2 * Math.PI);
+                        
+                        // The indicator is at the top (270 degrees or 3π/2 radians)
+                        // So we calculate the angle from the indicator position
+                        const indicatorAngle = (3 * Math.PI / 2 - normalizedRotation + (2 * Math.PI)) % (2 * Math.PI);
+                        
+                        // Determine which segment is at the indicator position
+                        const winnerIndex = Math.floor(indicatorAngle / segmentAngle);
+                        winner = participants[winnerIndex % participants.length];
+                        
+                        // Display winner
+                        resultadoElement.textContent = `🎉 Vencedor: ${winner} 🎉`;
+                        resultadoElement.style.color = 'var(--rosa-principal)';
+                        resultadoElement.style.fontSize = '1.3rem';
+                        resultadoElement.style.animation = 'pulse 0.5s 3';
+                        
                         // Re-enable button
                         btn.disabled = false;
                         btn.innerHTML = '<i class="fas fa-sync-alt"></i> Girar Novamente';
@@ -1964,6 +1992,7 @@
                     }, 1000);
                 }, 3000);
             }
+            
             // Toggle da tabela
             const toggleTabelaBtn = document.getElementById('toggle-tabela');
             const tabelaContainer = document.querySelector('.giveaway-content');
@@ -2010,6 +2039,11 @@
                         transform: translateY(100vh) rotate(360deg);
                         opacity: 0;
                     }
+                }
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                    100% { transform: scale(1); }
                 }
             `;
             document.head.appendChild(style);
