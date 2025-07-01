@@ -1357,6 +1357,119 @@
             }
         }
 
+        /* ===== ANIMAÇÃO DE TRANSIÇÃO ENTRE PÁGINAS ===== */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .loading-animation {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .loading-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 8px solid transparent;
+            border-top-color: var(--rosa-principal);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loading-circle:nth-child(2) {
+            border-top-color: var(--roxo-trans);
+            animation-delay: 0.2s;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .loading-circle:nth-child(3) {
+            border-top-color: var(--rosa-claro);
+            animation-delay: 0.4s;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+        }
+
+        .loading-text {
+            color: var(--preto-suave);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.3s forwards;
+        }
+
+        .loading-subtext {
+            color: var(--preto-suave);
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.7;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.6s forwards;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Efeito de partículas */
+        .particle {
+            position: absolute;
+            background-color: var(--rosa-principal);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        /* Criar partículas dinamicamente */
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
     </style>
 </head>
 <body>
@@ -1737,6 +1850,18 @@
         </button>
     </div>
 
+    <!-- Animação de transição entre páginas -->
+    <div class="page-transition" id="pageTransition">
+        <div class="particles-container" id="particlesContainer"></div>
+        <div class="loading-animation">
+            <div class="loading-circle"></div>
+            <div class="loading-circle"></div>
+            <div class="loading-circle"></div>
+        </div>
+        <div class="loading-text">Carregando Galeria</div>
+        <div class="loading-subtext">Aguarde um momento...</div>
+    </div>
+
     <script>
         // Menu mobile
         const mobileMenu = document.getElementById('mobileMenu');
@@ -2031,7 +2156,7 @@
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes confetti-fall {
-                    0% {
+                    0%, 100% {
                         transform: translateY(0) rotate(0deg);
                         opacity: 1;
                     }
@@ -2156,7 +2281,64 @@
             }, 500);
         });
 
-        // Ao clicar na notificação, abrir o link (já está no HTML)
+        // Transição entre páginas
+        document.querySelector('a[href="https://roisapl.github.io/Em-constru-o/manutenção"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.href;
+            const transition = document.getElementById('pageTransition');
+            
+            // Criar partículas
+            createParticles();
+            
+            // Mostrar animação de transição
+            transition.classList.add('active');
+            
+            // Redirecionar após um pequeno delay
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 1500);
+        });
+
+        // Criar partículas aleatórias
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamanho aleatório entre 5px e 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posição aleatória
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Atraso aleatório na animação
+                particle.style.animationDelay = `${Math.random() * 2}s`;
+                
+                // Cor aleatória entre rosa e roxo
+                const colors = ['var(--rosa-principal)', 'var(--rosa-claro)', 'var(--roxo-trans)'];
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Duração aleatória
+                particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Verificar se estamos voltando para a página
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                const transition = document.getElementById('pageTransition');
+                transition.classList.remove('active');
+            }
+        });
+
     </script>
 </body>
 </html>
