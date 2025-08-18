@@ -2207,24 +2207,7 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Notificação do Acervo
-        const acervoNotification = document.getElementById('acervoNotification');
-        const closeAcervoBtn = document.getElementById('closeAcervo');
-
-        // Mostrar notificação após 3 segundos
-        setTimeout(() => {
-            acervoNotification.classList.add('active');
-        }, 3000);
-
-        // Fechar notificação
-        closeAcervoBtn.addEventListener('click', function() {
-            acervoNotification.classList.remove('active');
-            
-            // Esconder completamente após a animação
-            setTimeout(() => {
-                acervoNotification.style.display = 'none';
-            }, 500);
-        });
+        <-- scrip notificação-->
 
         // Transição entre páginas
         document.querySelector('a[href="https://roisapl.github.io/Em-constru-o/manutenção"]').addEventListener('click', function(e) {
