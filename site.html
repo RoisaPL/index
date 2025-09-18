@@ -2165,7 +2165,7 @@
         // Countdown Timer
         function updateCountdown() {
             const now = new Date();
-            const targetDate = new Date(now.getFullYear(), 9, 19, 18, 00, 00); // Mês 9 = Setembro (0-indexed), dia 19
+            const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 18, 00, 00);
             
             // Se já passou da data este ano, definir para o próximo ano
             if (now > targetDate) {
