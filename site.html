@@ -2165,7 +2165,7 @@
         // Countdown Timer
         function updateCountdown() {
             const now = new Date();
-            const targetDate = new Date(now.getFullYear(), 7, 19, 23, 59, 59); // Mês 9 = Setembro (0-indexed), dia 19
+            const targetDate = new Date(now.getFullYear(), 9, 19, 18, 00, 00); // Mês 9 = Setembro (0-indexed), dia 19
             
             // Se já passou da data este ano, definir para o próximo ano
             if (now > targetDate) {
@@ -2210,7 +2210,7 @@
         setInterval(updateCountdown, 1000);
 
         // Notificação do Acervo
-       //const acervoNotification = document.getElementById('acervoNotification');
+        //const acervoNotification = document.getElementById('acervoNotification');
         //const closeAcervoBtn = document.getElementById('closeAcervo');
 
         // Mostrar notificação após 3 segundos
